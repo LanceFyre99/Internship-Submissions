@@ -1,0 +1,11 @@
+C:\Users\Lucas\Desktop\Iota\blarg\bin\Debug\netcoreapp2.0\blarg.deps.json
+C:\Users\Lucas\Desktop\Iota\blarg\bin\Debug\netcoreapp2.0\blarg.runtimeconfig.json
+C:\Users\Lucas\Desktop\Iota\blarg\bin\Debug\netcoreapp2.0\blarg.runtimeconfig.dev.json
+C:\Users\Lucas\Desktop\Iota\blarg\bin\Debug\netcoreapp2.0\blarg.dll
+C:\Users\Lucas\Desktop\Iota\blarg\bin\Debug\netcoreapp2.0\blarg.pdb
+C:\Users\Lucas\Desktop\Iota\blarg\obj\Debug\netcoreapp2.0\blarg.csprojAssemblyReference.cache
+C:\Users\Lucas\Desktop\Iota\blarg\obj\Debug\netcoreapp2.0\blarg.csproj.CoreCompileInputs.cache
+C:\Users\Lucas\Desktop\Iota\blarg\obj\Debug\netcoreapp2.0\blarg.AssemblyInfoInputs.cache
+C:\Users\Lucas\Desktop\Iota\blarg\obj\Debug\netcoreapp2.0\blarg.AssemblyInfo.cs
+C:\Users\Lucas\Desktop\Iota\blarg\obj\Debug\netcoreapp2.0\blarg.dll
+C:\Users\Lucas\Desktop\Iota\blarg\obj\Debug\netcoreapp2.0\blarg.pdb
