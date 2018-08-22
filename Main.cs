@@ -2,6 +2,8 @@
 using System.IO;
 using YamlDotNet;
 using YamlDotNet.RepresentationModel;
+using YamlDotNet.Serialization;
+using YamlDotNet.Serialization.NamingConventions;
 
 namespace blarg
 {
@@ -71,15 +73,20 @@ namespace blarg
             var yaml = new YamlStream();
             yaml.Load(input);
 
+            var deserializer = new DeserializerBuilder().WithNamingConvention(new CamelCaseNamingConvention()).Build();
+
+            var stuff = deserializer.Deserialize<Stuff>(input);
+
             var mapping =
                 (YamlMappingNode)yaml.Documents[0].RootNode;
-
+            /*
             foreach (var entry in mapping.Children)
             {
                 Console.WriteLine(((YamlScalarNode)entry.Key).Value);
             }
 
             var Statistics = (YamlSequenceNode)mapping.Children[new YamlScalarNode("Statistics")];
+            
             foreach (YamlMappingNode Stat in Statistics) {
                 Console.WriteLine(
                     "{0}\t{1}",
@@ -90,6 +97,14 @@ namespace blarg
                     Stat.Children[new YamlScalarNode("Thickness")]
                 );
             }
+            */
+            Console.WriteLine(stuff.Stringy);
+            //Console.WriteLine(stuff.Num2);
+        }
+        public class Stuff {
+            public int Num1 { get; set; }
+            public int Num2 { get; set; }
+            public string Stringy { get; set; }
         }
     }
 }
