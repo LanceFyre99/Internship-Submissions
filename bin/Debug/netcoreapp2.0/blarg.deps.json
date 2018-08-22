@@ -1,14 +1,22 @@
 {
   "runtimeTarget": {
     "name": ".NETCoreApp,Version=v2.0",
-    "signature": "da39a3ee5e6b4b0d3255bfef95601890afd80709"
+    "signature": "5aa92724b4290e2b7b5f72a6c26b689bd12a41f9"
   },
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v2.0": {
       "blarg/1.0.0": {
+        "dependencies": {
+          "YamlDotNet": "5.0.1"
+        },
         "runtime": {
           "blarg.dll": {}
+        }
+      },
+      "YamlDotNet/5.0.1": {
+        "runtime": {
+          "lib/netstandard1.3/YamlDotNet.dll": {}
         }
       }
     }
@@ -18,6 +26,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "YamlDotNet/5.0.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3tltCmC64lW/Ml3lrTn6BkiHht2EDlOXpoD8odb+gg2mgDi+/zK3zW21zXD67FHxk7lJC1fKjCMYgnHgk8YloA==",
+      "path": "yamldotnet/5.0.1",
+      "hashPath": "yamldotnet.5.0.1.nupkg.sha512"
     }
   }
 }

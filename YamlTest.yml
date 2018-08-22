@@ -1,0 +1,14 @@
+---
+Object Type: "Block"
+Statistics:
+- Name: "Generic Box"
+  Hardness: 55
+  Height: 3
+  Width: 6
+  Thickness: 2
+
+- Name: "Dirt"
+  Hardness: 3
+  Height: 5
+  Width: 5
+  Thickness: 5

@@ -1,4 +1,7 @@
 ﻿using System;
+using System.IO;
+using YamlDotNet;
+using YamlDotNet.RepresentationModel;
 
 namespace blarg
 {
@@ -63,15 +66,30 @@ namespace blarg
     {
         static void Main(string[] args)
         {
-            var sll = new SingleLinkedList();
-            sll.InsertLast(74);
-            sll.InsertLast(46);
-            sll.InsertFront(28);
-            sll.InsertLast(84);
-            sll.InsertFront(52);
-            sll.KillFront();
-            sll.KillLast();
-            sll.WriteList();
+            var input = new StreamReader(path: "YamlTest.yml");
+
+            var yaml = new YamlStream();
+            yaml.Load(input);
+
+            var mapping =
+                (YamlMappingNode)yaml.Documents[0].RootNode;
+
+            foreach (var entry in mapping.Children)
+            {
+                Console.WriteLine(((YamlScalarNode)entry.Key).Value);
+            }
+
+            var Statistics = (YamlSequenceNode)mapping.Children[new YamlScalarNode("Statistics")];
+            foreach (YamlMappingNode Stat in Statistics) {
+                Console.WriteLine(
+                    "{0}\t{1}",
+                    Stat.Children[new YamlScalarNode("Name")],
+                    Stat.Children[new YamlScalarNode("Hardness")],
+                    Stat.Children[new YamlScalarNode("Height")],
+                    Stat.Children[new YamlScalarNode("Width")],
+                    Stat.Children[new YamlScalarNode("Thickness")]
+                );
+            }
         }
     }
 }
