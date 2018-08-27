@@ -1,4 +1,11 @@
 ---
-Num1: 44
-Num2: 2
-Stringy: I can be read without quotation marks!
+folders2Secure: 
+ - .git
+ - .vs
+
+folders2Delete: 
+ - packages
+ - obj
+ - bin
+ - TestResults
+ - node_modules

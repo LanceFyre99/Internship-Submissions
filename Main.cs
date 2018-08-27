@@ -1,5 +1,7 @@
 ﻿using System;
 using System.IO;
+using System.Collections.Generic;
+using System.Linq;
 using YamlDotNet;
 using YamlDotNet.RepresentationModel;
 using YamlDotNet.Serialization;
@@ -64,47 +66,32 @@ namespace blarg
             temp.next = null;
         }
     }
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
-        {
-            var input = new StreamReader(path: "YamlTest.yml");
+	    public class FolderPreferences
+	    {
+		    public List<string> Folders2Secure { get; set; }
+		    public List<string> Folders2Delete { get; set; }
+	    }
+	
+	    public static void Main()
+	    {
+		    var input = new StreamReader("YamlTest.yml");
 
-            var yaml = new YamlStream();
-            yaml.Load(input);
+		    var deserializerBuilder = new DeserializerBuilder().WithNamingConvention(new CamelCaseNamingConvention());
 
-            var deserializer = new DeserializerBuilder().WithNamingConvention(new CamelCaseNamingConvention()).Build();
+            var deserializer = deserializerBuilder.Build();
 
-            var stuff = deserializer.Deserialize<Stuff>(input);
+            var result = deserializer.Deserialize<FolderPreferences>(input);
 
-            var mapping =
-                (YamlMappingNode)yaml.Documents[0].RootNode;
-            /*
-            foreach (var entry in mapping.Children)
-            {
-                Console.WriteLine(((YamlScalarNode)entry.Key).Value);
+            Console.WriteLine("Folders2Delete:");
+            foreach (var item in result.Folders2Delete) {
+                Console.WriteLine(item);
             }
-
-            var Statistics = (YamlSequenceNode)mapping.Children[new YamlScalarNode("Statistics")];
-            
-            foreach (YamlMappingNode Stat in Statistics) {
-                Console.WriteLine(
-                    "{0}\t{1}",
-                    Stat.Children[new YamlScalarNode("Name")],
-                    Stat.Children[new YamlScalarNode("Hardness")],
-                    Stat.Children[new YamlScalarNode("Height")],
-                    Stat.Children[new YamlScalarNode("Width")],
-                    Stat.Children[new YamlScalarNode("Thickness")]
-                );
+            Console.WriteLine("Folders2Secure:");
+            foreach (var item in result.Folders2Secure) {
+                Console.WriteLine(item);
             }
-            */
-            Console.WriteLine(stuff.Stringy);
-            //Console.WriteLine(stuff.Num2);
-        }
-        public class Stuff {
-            public int Num1 { get; set; }
-            public int Num2 { get; set; }
-            public string Stringy { get; set; }
-        }
+	    }
     }
 }
